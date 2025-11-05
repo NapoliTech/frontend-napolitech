@@ -82,16 +82,16 @@ export default function SectionPedidos() {
     try {
       const response = await api.get("/api/produtos");
       console.log("Resposta da API:", response);
-      if (Array.isArray(response.data)) {
-        setProdutos(response.data);
+      if (response.data && Array.isArray(response.data.content)) {
+        setProdutos(response.data.content);
 
-        // Filtra apenas os produtos com categoriaProduto = "REFRIGERANTE"
-        const bebidasFiltradas = response.data.filter(
+        // Filtra apenas os produtos com categoriaProduto = "BEBIDAS"
+        const bebidasFiltradas = response.data.content.filter(
           (produto) => produto.categoriaProduto === "BEBIDAS"
         );
         setBebidas(bebidasFiltradas);
       } else {
-        console.error("A resposta da API não é um array:", response.data);
+        console.error("A resposta da API não contém um array em content:", response.data);
       }
     } catch (error) {
       console.error("Erro ao buscar produtos:", error);
