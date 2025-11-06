@@ -3,7 +3,7 @@ import { CarosselComTexto } from "./components/templates/CarosselComTexto";
 import { Login } from "./components/organisms/Login";
 import { Cadastro } from "./components/organisms/Cadastro";
 import { Home } from "./components/pages/Home";
-import Pedidos from "./components/pages/pedidos";
+import Pedidos from "./components/pages/Pedidos";
 import Atendimento from "./components/pages/Atendimento";
 import FinalizarPedido from "./components/pages/FinalizarPedido";
 import NavPedidos from "./components/molecules/NavPedidos";

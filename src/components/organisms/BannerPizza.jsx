@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/material";
-import { SectionQualidade } from "../atoms/sectionQualidade";
+import { SectionQualidade } from "../atoms/SectionQualidade";
 import { TituloH2 } from "../atoms/TituloH2";
 
 const StyledBox = styled(Box)(() => ({

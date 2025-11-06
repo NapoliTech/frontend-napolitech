@@ -1,7 +1,7 @@
 import { Box, Stack } from "@mui/material";
 import React from "react";
 import { TituloH2 } from "../atoms/TituloH2";
-import CardPizza from "./cardPizza";
+import CardPizza from "./CardPizza";
 
 export function MelhoresPizzas() {
   return (

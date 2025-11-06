@@ -19,7 +19,7 @@ import ButtonMaterialUi from "../atoms/ButtonMaterialUi";
 import ItemListaDePedidos from "../atoms/ItemListaDePedidos";
 import Acordeon from "../atoms/Acordeon";
 import SearchIcon from "@mui/icons-material/Search";
-import { MelhoresPizzas } from "../molecules/melhoresPizzas";
+import { MelhoresPizzas } from "../molecules/MelhoresPizzas";
 import.meta.env;
 import TabuaPizza from "../../../public/img/tabua_pizza__.png";
 import TabuaPizzaEsq from "../../../public/img/tabua_pizzaEsq.png";

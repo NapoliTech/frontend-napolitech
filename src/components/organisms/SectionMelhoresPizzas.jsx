@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import React from "react";
-import { MelhoresPizzas } from "../molecules/melhoresPizzas";
+import { MelhoresPizzas } from "../molecules/MelhoresPizzas";
 import { TituloH2 } from "../atoms/TituloH2";
 
 
