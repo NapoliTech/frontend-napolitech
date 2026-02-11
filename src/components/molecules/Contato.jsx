@@ -1,46 +1,93 @@
-import { Box, Stack } from '@mui/material';
+import { Box, Stack, Typography, Divider } from '@mui/material';
+import PhoneIcon from '@mui/icons-material/Phone';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import React from 'react';
-import Divider from "@mui/material/Divider";
 
 export default function Contato() {
   return (
     <Stack
-      direction={{ xs: "column", sm: "row" }}
-      spacing={{ xs: 4, sm: 6, md: 6 }}
-      
+      direction={{ xs: "column", md: "row" }}
+      spacing={{ xs: 4, sm: 5, md: 8 }}
       sx={{
         justifyContent: "space-between",
-        alignItems: 'center',
-        width: '80%',
-        padding: '20px'
+        alignItems: { xs: 'center', md: 'flex-start' },
+        width: { xs: '95%', sm: '90%', md: '85%' },
+        maxWidth: '1200px',
+        px: { xs: 2, sm: 3, md: 4 },
       }}
-
-      
     >
-      <Box sx={{ textAlign: "center" }}>
-        <h2>Fale Conosco</h2>
-        <p>(11) 91324-3487</p>
-        <p>Rua Juquiá, 675</p>
-        <p>Jardim Cristiane</p>
-        <p>Santo André-SP</p>
-        <p>09185-235</p>
+      {/* Fale Conosco */}
+      <Box sx={{ textAlign: { xs: "center", md: "left" }, flex: 1 }}>
+        <Stack direction="row" spacing={1} justifyContent={{ xs: "center", md: "flex-start" }} sx={{ mb: 2 }}>
+          <PhoneIcon sx={{ color: "#B72A23" }} />
+          <Typography variant="h6" sx={{ fontWeight: "bold", fontSize: { xs: "1.1rem", md: "1.25rem" } }}>
+            Fale Conosco
+          </Typography>
+        </Stack>
+        <Typography variant="body1" sx={{ mb: 0.5, fontSize: { xs: "0.9rem", md: "1rem" } }}>
+          (11) 91324-3487
+        </Typography>
+        <Stack direction="row" spacing={0.5} justifyContent={{ xs: "center", md: "flex-start" }} sx={{ mt: 2 }}>
+          <LocationOnIcon sx={{ color: "#B72A23", fontSize: "1.2rem" }} />
+          <Box>
+            <Typography variant="body2" sx={{ fontSize: { xs: "0.85rem", md: "0.875rem" } }}>
+              Rua Juquiá, 675
+            </Typography>
+            <Typography variant="body2" sx={{ fontSize: { xs: "0.85rem", md: "0.875rem" } }}>
+              Jardim Cristiane
+            </Typography>
+            <Typography variant="body2" sx={{ fontSize: { xs: "0.85rem", md: "0.875rem" } }}>
+              Santo André-SP
+            </Typography>
+            <Typography variant="body2" sx={{ fontSize: { xs: "0.85rem", md: "0.875rem" } }}>
+              09185-235
+            </Typography>
+          </Box>
+        </Stack>
       </Box>
-      <Box display={"flex"}>
-        <hr style={{ border: "solid black 1px" }} />
-        <img src="/img/logo_bonari_preto.png" alt="" 
+
+      {/* Logo Central - oculta em mobile pequeno */}
+      <Box 
+        sx={{ 
+          display: { xs: "flex", sm: "flex" },
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          flex: { xs: 0, md: 1 },
+        }}
+      >
+        <Divider sx={{ width: "100%", mb: 2, display: { xs: "block", md: "none" } }} />
+        <img 
+          src="/img/logo_bonari_preto.png" 
+          alt="Logo Bonari" 
           style={{
-            margin: '0px 50px'
+            width: "auto",
+            height: "120px",
+            maxWidth: "100%",
+            objectFit: "contain",
           }}
         />
-        <hr style={{ border: "solid black 1px" }} />
+        <Divider sx={{ width: "100%", mt: 2, display: { xs: "block", md: "none" } }} />
       </Box>
-      <Box>
-        <Box sx={{ textAlign: "center" }}>
-          <h3>Horários de Funcionamento</h3>
-          <p>Terça a Sábado: 18:00 - 01:00</p>
-          <p>Feriados: 18:00 - 23:00</p>
-          <p>Fechados às segundas-feiras, exceto feriados</p>
-        </Box>
+
+      {/* Horários */}
+      <Box sx={{ textAlign: { xs: "center", md: "left" }, flex: 1 }}>
+        <Stack direction="row" spacing={1} justifyContent={{ xs: "center", md: "flex-start" }} sx={{ mb: 2 }}>
+          <AccessTimeIcon sx={{ color: "#B72A23" }} />
+          <Typography variant="h6" sx={{ fontWeight: "bold", fontSize: { xs: "1.1rem", md: "1.25rem" } }}>
+            Horários
+          </Typography>
+        </Stack>
+        <Typography variant="body2" sx={{ mb: 1, fontSize: { xs: "0.85rem", md: "0.875rem" } }}>
+          Terça a Sábado: 18:00 - 01:00
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 1, fontSize: { xs: "0.85rem", md: "0.875rem" } }}>
+          Feriados: 18:00 - 23:00
+        </Typography>
+        <Typography variant="body2" sx={{ fontSize: { xs: "0.85rem", md: "0.875rem" }, fontStyle: "italic", color: "text.secondary" }}>
+          Fechados às segundas-feiras, exceto feriados
+        </Typography>
       </Box>
     </Stack>
   );

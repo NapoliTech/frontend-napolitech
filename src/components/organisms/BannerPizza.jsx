@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import { SectionQualidade } from "../atoms/SectionQualidade";
 import { TituloH2 } from "../atoms/TituloH2";
 
-const StyledBox = styled(Box)(() => ({
+const StyledBox = styled(Box)(({ theme }) => ({
   width: "290px",
   height: "280px",
   margin: "8px",
@@ -18,6 +18,11 @@ const StyledBox = styled(Box)(() => ({
     objectFit: "cover",
     marginBottom: "8px",
   },
+  [theme.breakpoints.down("lg")]: {
+    width: "100%",
+    maxWidth: "100%",
+    margin: "0",
+  },
 }));
 
 export function BannerPizza() {
@@ -28,23 +33,122 @@ export function BannerPizza() {
         justifyContent: "center",
         alignItems: "center",
         boxSizing: "border-box",
-        margin: "50px",
-        marginTop: "30px",
+        margin: { xs: "20px", lg: "50px" },
+        marginTop: { xs: "20px", lg: "30px" },
+        padding: { xs: "16px", lg: "0" },
       }}
     >
       <Box
         sx={{
-          width: "80%",
-          display: "flex",
+          width: { xs: "100%", lg: "80%" },
+          display: { xs: "flex", lg: "flex" },
+          flexDirection: { xs: "column", lg: "row" },
           justifyContent: "center",
           alignItems: "center",
-          gap: "24px",
+          gap: { xs: "32px", lg: "24px" },
         }}
       >
+        {/* MOBILE/TABLET: Logo + Título + Grid vertical */}
+        <Box
+          sx={{
+            display: { xs: "flex", lg: "none" },
+            flexDirection: "column",
+            gap: "32px",
+            width: "100%",
+            alignItems: "center",
+          }}
+        >
+          {/* Logo centralizada */}
+          <img
+            src="/img/logo_bonari.png"
+            alt="Logo Bonari"
+            style={{
+              width: "auto",
+              height: "140px",
+              objectFit: "contain",
+            }}
+          />
+
+          {/* Título */}
+          <TituloH2
+            text={
+              <>
+                Você merece uma <br /> pizza hoje!
+              </>
+            }
+            fontSize={"clamp(32px, 5vw, 50px)"}
+            color={"red"}
+          />
+
+          {/* Grid vertical - 1 coluna */}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "16px",
+              width: "100%",
+              maxWidth: "400px",
+            }}
+          >
+            <StyledBox>
+              <SectionQualidade
+                srcImg={"/img/camarao.png"}
+                textH2={"Produtos de qualidade"}
+                textP={
+                  <>
+                    cuidadosamente escolidos <br /> para um alto nivel de
+                    qualidade
+                  </>
+                }
+              />
+            </StyledBox>
+
+            <StyledBox>
+              <SectionQualidade
+                srcImg={"/img/tomate.png"}
+                textH2={"Produtos de qualidade"}
+                textP={
+                  <>
+                    cuidadosamente escolidos <br /> para um alto nivel de
+                    qualidade
+                  </>
+                }
+              />
+            </StyledBox>
+
+            <StyledBox>
+              <SectionQualidade
+                srcImg={"/img/azeite.png"}
+                textH2={"Produtos de qualidade"}
+                textP={
+                  <>
+                    cuidadosamente escolidos <br /> para um alto nivel de
+                    qualidade
+                  </>
+                }
+              />
+            </StyledBox>
+
+            <StyledBox>
+              <SectionQualidade
+                srcImg={"/img/joia.png"}
+                textH2={"Produtos de qualidade"}
+                textP={
+                  <>
+                    cuidadosamente escolidos <br /> para um alto nivel de
+                    qualidade
+                  </>
+                }
+              />
+            </StyledBox>
+          </Box>
+        </Box>
+
+        {/* DESKTOP: Layout original com imagem da pizza */}
         <Box
           sx={{
             width: "50%",
-            display: "flex",
+            display: { xs: "none", lg: "flex" },
           }}
         >
           <img
@@ -62,7 +166,7 @@ export function BannerPizza() {
 
         <Box
           sx={{
-            display: "flex",
+            display: { xs: "none", lg: "flex" },
             flexDirection: "column",
             gap: "24px",
             maxWidth: "50%",

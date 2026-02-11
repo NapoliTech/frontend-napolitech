@@ -71,8 +71,8 @@ export default function PedidoConcluido() {
                 <Typography variant="body2">
                   <strong>Produto:</strong>{" "}
                   {Array.isArray(item.produto)
-                    ? item.produto.join(", ")
-                    : item.produto}
+                    ? item.produto.map(p => typeof p === 'object' ? p.nome : p).join(", ")
+                    : typeof item.produto === 'object' ? item.produto.nome : item.produto}
                   <br />
                   <strong>Quantidade:</strong> {item.quantidade} <br />
                   <strong>Borda Recheada:</strong> {item.bordaRecheada || "Sem borda recheada"} <br />

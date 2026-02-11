@@ -7,16 +7,15 @@ export default function CardLoad({ isLoading, message, isPositive }) {
     <Box
       sx={{
         position: "fixed",
-        top: "10%", // Posiciona o card no topo da tela (ajuste conforme necessário)
-        left: "50%", // Centraliza horizontalmente
-        transform: "translateX(-50%)", // Ajusta para centralizar corretamente
-        width: "100vw",
-        height: "100vh",
-        backgroundColor: "rgba(0, 0, 0, 0.5)", // Fundo escuro com opacidade
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
         display: "flex",
         justifyContent: "center",
-        alignItems: "flex-start", // Alinha o card no topo
-        zIndex: 1300, // Garante que fique acima de outros elementos
+        alignItems: "center",
+        zIndex: 1300,
       }}
     >
       <Card

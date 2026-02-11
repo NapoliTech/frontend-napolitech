@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import React from "react";
-import SectionPedidos from "../organisms/SectionPedidos";
+import SectionPedidosNovo from "../organisms/SectionPedidosNovo";
 
 export default function Pedidos() {
   return (
@@ -13,7 +13,7 @@ export default function Pedidos() {
         overflow: 'hidden'
       }}
     >
-      <SectionPedidos />
+      <SectionPedidosNovo />
     </Box>
   );
 }

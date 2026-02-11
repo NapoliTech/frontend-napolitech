@@ -6,11 +6,13 @@ import { Home } from "./components/pages/Home";
 import Pedidos from "./components/pages/Pedidos";
 import Atendimento from "./components/pages/Atendimento";
 import FinalizarPedido from "./components/pages/FinalizarPedido";
+import FinalizarPedidoNovo from "./components/pages/FinalizarPedidoNovo";
 import NavPedidos from "./components/molecules/NavPedidos";
 import PedidoConcluido from "./components/pages/PedidoConcluido";
+import { PedidoProvider } from "./context/PedidoContext";
 
 
-// Layout compartilhado para /pedidos e /finalizarPedido
+// Layout compartilhado para /pedidos e /finalizarPedido COM PedidoProvider único
 const LayoutNavPedido = ({ children }) => (
   <div style={{ position: "relative", minHeight: "100vh" }}>
     {/* Renderiza a NavPedidos no topo */}
@@ -26,6 +28,15 @@ const LayoutNavPedido = ({ children }) => (
       {children}
     </div>
   </div>
+);
+
+// Layout com Context compartilhado para rotas de pedidos
+const LayoutComContext = ({ children }) => (
+  <PedidoProvider>
+    <LayoutNavPedido>
+      {children}
+    </LayoutNavPedido>
+  </PedidoProvider>
 );
 
 export const routes = createBrowserRouter([
@@ -53,17 +64,17 @@ export const routes = createBrowserRouter([
   {
     path: "/pedidos",
     element: (
-      <LayoutNavPedido>
+      <LayoutComContext>
         <Pedidos />
-      </LayoutNavPedido>
+      </LayoutComContext>
     ),
   },
   {
     path: "/finalizarPedido",
     element: (
-      <LayoutNavPedido>
-        <FinalizarPedido />
-      </LayoutNavPedido>
+      <LayoutComContext>
+        <FinalizarPedidoNovo />
+      </LayoutComContext>
     ),
   },
   {
